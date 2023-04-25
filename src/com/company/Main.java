@@ -12,15 +12,23 @@ public class Main {
 
         linesController.showAllStations();
 
-        Station start;
-        Station target;
+        Station start = null;
+        Station target = null;
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Start: ");
-        start = linesController.findStationByNameInAllLines(scanner.nextLine());
-        System.out.println("Ziel: ");
-        target = linesController.findStationByNameInAllLines(scanner.nextLine());
+        while (start == null){
+            System.out.println("Start: ");
+            start = linesController.findStationByNameInAllLines(scanner.nextLine());
+            if (start == null)
+                System.out.println("Try again");
+        }
+        while (target == null){
+            System.out.println("Ziel: ");
+            target = linesController.findStationByNameInAllLines(scanner.nextLine());
+            if (target == null)
+                System.out.println("Try again");
+        }
 
         scanner.close();
 
